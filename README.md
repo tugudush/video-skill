@@ -15,6 +15,45 @@ For screen recordings, bug repros and short clips, the skill prefers the local p
 
 ## Setup
 
+### 0. Put the skill files in your skills folder
+
+Claude Code loads personal skills from a `skills` folder in your user profile. The skill must live in a folder named `video` (the folder name is the skill name), with `SKILL.md` directly inside it:
+
+| OS            | Path                                 |
+| ------------- | ------------------------------------ |
+| Windows       | `%USERPROFILE%\.claude\skills\video` |
+| macOS / Linux | `~/.claude/skills/video`             |
+
+Clone or copy this repository so the folder looks like this:
+
+```text
+.claude/
+└── skills/
+    └── video/
+        ├── SKILL.md              # required: the skill itself, must be at the top of the folder
+        ├── README.md
+        ├── scripts/
+        │   └── video.mjs         # the command-line wrapper
+        └── references/
+            └── providers.md
+```
+
+For example, from a terminal:
+
+```bash
+# macOS / Linux
+git clone <repository-url> ~/.claude/skills/video
+
+# Windows (PowerShell)
+git clone <repository-url> "$env:USERPROFILE\.claude\skills\video"
+```
+
+Make sure `SKILL.md` ends up directly in `video/`, not in a nested `video/video/` folder, which is the usual result of unzipping or cloning into the wrong place. If `.claude/skills` doesn't exist yet, create it.
+
+To make the skill available in only one project instead of everywhere, put the same `video` folder in that project's `.claude/skills/` folder.
+
+Restart Claude Code (or VS Code) afterwards so it picks up the new skill. The `node scripts/video.mjs ...` commands in this README are run from inside the `video` folder.
+
 ### 1. Install the package and check Node
 
 You need Node.js 20 or newer. Install the package globally:
