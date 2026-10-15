@@ -1,6 +1,10 @@
 # Local test media (may contain personal or confidential recordings)
 test-videos/
 
+# Scratch notes from trying the skill on real videos (see test-skill/README.md)
+test-skill/*
+!test-skill/README.md
+
 # API keys and local settings: keep out of version control
 .env
 .env.*

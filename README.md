@@ -2,7 +2,7 @@
 
 This is an agent skill for Claude Code and other agents that load `SKILL.md` skills. It lets the agent work with video: read metadata, pull out frames it can look at, ask AI providers questions about a video, find moments, summarize, and transcribe speech (with speaker labels and SRT/VTT subtitles).
 
-It replaces the Video Context MCP server. It runs the same code, the globally installed `video-context-mcp-server` npm package, but through one command-line script, `scripts/video.mjs`, instead of an MCP server. The package's provider fallback, caching and yt-dlp handling all still apply.
+It replaces the [Video Context MCP server](https://www.videocontextmcp.com/providers/video/). It runs the same code, the globally installed `video-context-mcp-server` npm package, but through one command-line script, `scripts/video.mjs`, instead of an MCP server. The package's provider fallback, caching and yt-dlp handling all still apply.
 
 ## Two ways it works
 
@@ -69,7 +69,7 @@ Avoid `setx GEMINI_API_KEY ...` and `$env:GEMINI_API_KEY = ...`: the key would b
 
 Don't put keys in a `.env` file inside a repository or in this skill folder, where they could be committed. Don't put them in Claude Code's `settings.json` `env` block either, since that file is plain text and may be synced.
 
-**Coming from the MCP server?** Your keys are probably in the `env` block of an MCP config such as `.vscode/mcp.json`. Move them into your user environment as above, and remove them from that file. Once the skill replaces the MCP server, nothing else needs that file.
+**Coming from the [MCP server](https://www.videocontextmcp.com/providers/video/)?** Your keys are probably in the `env` block of an MCP config such as `.vscode/mcp.json`. Move them into your user environment as above, and remove them from that file. Once the skill replaces the MCP server, nothing else needs that file.
 
 ### 4. Restart and check
 
